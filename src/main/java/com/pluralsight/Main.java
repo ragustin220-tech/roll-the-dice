@@ -1,17 +1,47 @@
 package com.pluralsight;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+        Dice dice = new Dice();
+    //    System.out.println(dice.roll());
+        int roll1;
+        int roll2;
+
+        int numberOf2 = 0;
+        int numberOf4 = 0;
+        int numberOf6 = 0;
+        int numberOf7 = 0;
+
+        //System.out.println(numberOf2);
+
+        for (int counter = 1; counter <= 100; counter++) {
+
+             roll1 = dice.roll();
+             roll2 = dice.roll();
+
+            int sum = roll1 + roll2;
+            System.out.println("Roll" + counter + ":    " +  roll1 + " - " + roll2 + "     Sum " + sum);
+           // System.out.printf("%8d %8d %8d %8d\n", counter, roll1, roll2, sum );
+            if (sum ==2){
+                numberOf2++;
+            }
+            if (sum == 4){
+                numberOf4++;
+            }
+            if (sum == 6){
+                numberOf6++;
+            }
+            if (sum == 7){
+                numberOf7++;
+            }
+
+            System.out.println("\n--- Final Counter Result ---");;
+            System.out.println("Number of times sum was 2: "+ numberOf2);
+            System.out.println("Number of times sum was 4: "+ numberOf4);
+            System.out.println("Number of times sum was 6: "+ numberOf6);
+            System.out.println("Number of times sum was 7: "+ numberOf7);
         }
     }
 }
